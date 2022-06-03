@@ -3,6 +3,7 @@ class Actor < ApplicationRecord
 
   has_many :actor_movies
   has_many :movies, through: :actor_movies
+  has_many :actors, through: :movies
 
   def self.ordered_by_age
     order(:age)
@@ -13,8 +14,6 @@ class Actor < ApplicationRecord
   end
 
   def coactors
-    movies.flat_map {|movie| movie.actors_in_movie}.uniq
+    actors.where.not(name: "Tom Holland").distinct
   end
-# haha well...I could not figure out how to do this with active record in time
-
 end

@@ -5,8 +5,6 @@
 <div id ="co-actors">
 <h4>Co-Actors:</h4>
 <ul><% @actor.coactors.each do |coactor| %>
-  <% if coactor != "Tom Holland" %>
-  <li> <%= coactor %> </li>
-  <% end %>
+  <li> <%= coactor.name %> </li>
   <% end %> </ul>
 </div>
