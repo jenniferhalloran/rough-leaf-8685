@@ -14,6 +14,7 @@ class Actor < ApplicationRecord
   end
 
   def coactors
+    # movies.joins(:actors).where("name != 'Tom Holland'").distinct.pluck(:name)
     actors.where.not(name: "Tom Holland").distinct
   end
 end
